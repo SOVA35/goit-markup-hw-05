@@ -216,7 +216,7 @@ a {
   letter-spacing: 0.04em;
   line-height: 1.5;
   cursor: pointer;
-  transition:  250ms linear;
+  transition: 250ms linear;
 }
 
 .hero-btn:hover,
@@ -257,18 +257,15 @@ a {
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
   transform: translate(-50%, -50%) scale(1);
-  transition: 0.35 linear;
+  transition: 0.25s linear;
 }
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0);
 }
 
 .close-hero_modal {
-  position: absolute;
-  right: 24px;
-  top: 24px;
-
   display: block;
+  margin-left: auto;
   padding: 8px;
 
   width: 24px;
@@ -277,7 +274,7 @@ a {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: rgba(231, 233, 252, 1);
   cursor: pointer;
-  overflow: hidden;
+  transition: 0.25s linear;
 }
 .close-hero_modal:hover,
 .close-hero_modal:focus {
@@ -457,6 +454,9 @@ a {
   justify-content: center;
   gap: 24px;
 }
+.customer-link {
+  display: block;
+}
 
 .brand-list {
   display: flex;
@@ -472,13 +472,12 @@ a {
   fill: #8e8f99;
   border: 1px solid #8e8f99;
   border-radius: 4px;
-  
+  transition: 0.25s linear;
 }
 .brand-link:hover,
 .brand-link:focus {
   fill: var(--accent-color-hover);
   border-color: var(--accent-color-hover);
-  
 }
 
 /*-------------------footer----------------*/
