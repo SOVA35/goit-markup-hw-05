@@ -63,6 +63,7 @@ p {
   margin-left: auto;
 }
 img {
+  display: block;
   max-width: 100%;
   height: auto;
 }
@@ -101,6 +102,7 @@ a {
 
 .nav-block {
   display: flex;
+  transition: color 0, 5s linear;
 }
 
 .navbar {
@@ -115,6 +117,7 @@ a {
   font-weight: 500;
   position: relative;
   color: var(--title-text-color);
+  transition: 0.25s linear;
 }
 
 .navbar-link:hover,
@@ -124,6 +127,7 @@ a {
 
 .navbar-list {
   position: relative;
+  transition: 0.25s linear;
 }
 .current::after {
   content: "";
@@ -212,6 +216,7 @@ a {
   letter-spacing: 0.04em;
   line-height: 1.5;
   cursor: pointer;
+  transition:  250ms linear;
 }
 
 .hero-btn:hover,
@@ -226,6 +231,11 @@ a {
   height: 100%;
 
   background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms linear, visibility 250ms linear;
+}
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -233,10 +243,8 @@ a {
 }
 .modal {
   position: absolute;
-  position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 408px;
   height: 576px;
@@ -247,7 +255,14 @@ a {
   border-radius: 4px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: 0.35 linear;
 }
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+
 .close-hero_modal {
   position: absolute;
   right: 24px;
@@ -270,18 +285,12 @@ a {
 }
 
 .close-icon {
-  position: absolute;
   display: block;
-
-  width: 8px;
+  margin: auto;
+  width: 100%;
   height: 100%;
 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
   fill: #000000;
-  background-color: transparent;
 }
 .close-icon:hover,
 .close-icon:focus {
@@ -416,6 +425,7 @@ a {
   height: 100%;
   border-radius: 50%;
   background-color: var(--accent-color);
+  transition: 0.25s linear;
 }
 .personal-link:hover {
   background-color: var(--accent-color-hover);
@@ -462,11 +472,13 @@ a {
   fill: #8e8f99;
   border: 1px solid #8e8f99;
   border-radius: 4px;
+  
 }
 .brand-link:hover,
 .brand-link:focus {
   fill: var(--accent-color-hover);
   border-color: var(--accent-color-hover);
+  
 }
 
 /*-------------------footer----------------*/
@@ -521,6 +533,7 @@ a {
   height: 100%;
   border-radius: 50%;
   background-color: var(--primery-text-color);
+  transition: 0.25s linear;
 }
 .socialmedia-link:is(:hover, :focus) {
   background-color: #31d0aa;
@@ -540,6 +553,7 @@ a {
   padding-top: 96px;
   margin-bottom: 72px;
   gap: var(--main-small-space);
+  transition: transform 250ms ease, opacity 1s ease;
 }
 .button-item {
   border: 1px solid var(--button-border-color);
@@ -553,6 +567,7 @@ a {
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.04em;
+  transition: 250ms linear, opacity 3s linear;
 }
 .button-item:hover,
 .button-item:focus {
@@ -560,6 +575,7 @@ a {
   background-color: var(--accent-color-hover);
   color: var(--secodary-text-color);
   border-color: var(--accent-color-hover);
+  transition: transform 250ms ease, opacity 1s ease;
 }
 .button-filter:hover {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
@@ -619,6 +635,10 @@ a {
 }
 
 /*------------*/
+.portfolio_thumb {
+  position: relative;
+  overflow: hidden;
+}
 
 .portfolio_overlay {
   display: inline-block;
@@ -632,10 +652,11 @@ a {
   background-color: var(--accent-color-hover);
 
   transform: translateY(100%);
-  transition: transform 250ms ease;
+  transition: transform 250ms ease, opacity 1s ease;
   padding: 40px 32px;
+  color: var(--secodary-text-color);
 }
-.portfolio_thumb:is(:hover, :focus) .portfolio_overlay {
+.portfilio_link:is(:hover, :focus) .portfolio_overlay {
   transform: translateY(0);
   opacity: 1;
 }
